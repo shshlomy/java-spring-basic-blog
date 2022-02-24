@@ -52,7 +52,7 @@ public class PostRepository {
     }
 
     public Post findById(Long id) {
-        List<Post> postList=  ALL_POSTS.stream().filter(e-> e.getId().equals(id)).collect(Collectors.toList());
-        return postList.get(0);
+      Post post = ALL_POSTS.stream().filter(e-> e.getId().equals(id)).findAny().orElse(null);
+      return post;
     }
 }
